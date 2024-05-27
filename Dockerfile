@@ -5,7 +5,7 @@
 FROM        debian:trixie-20240513-slim
 LABEL       maintainer="cmurray@927.technology"
 
-ENV         version=0.0.1
+ENV         version=0.0.2
 
 # update system
 RUN         apt update

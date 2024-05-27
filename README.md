@@ -5,6 +5,8 @@
 ```
 mkdir -p ~/mitmproxy
 chown 1000:1000 ~/mitmproxy
+sudo mkdir /var/log/mitmproxy
+sudo chown 1000:1000 /var/log/mitmproxy
 
 docker run                      \
   -d                            \
@@ -17,7 +19,8 @@ docker run                      \
   -e MODE=proxy                 \
   -e WEB_HOST=0.0.0.0           \
   -v ~/mitmproxy:/etc/mitm      \
-  927technology/mitmrouter:0.0.1
+  -v /var/log/mitmproxy:/var/log/mitmproxy  \
+  927technology/mitmrouter:0.0.2
 
 ```
 
@@ -29,7 +32,9 @@ Ports 80 and 443 are redirected to 8080 when router is in transparent mode.
 
 
 ## Modes
-proxy - This allows you to run each application proxy settings through the router.  Settings require you to set the application or global system settings to proxy through the host's IP on port 8080 for http and TLS traffic
+regular - This allows you to run each application proxy settings through the router.  Settings require you to set the application or global system settings to proxy through the host's IP on port 8080 for http and TLS traffic
+
+socks5
 
 transparent - this allows you to run the router as an in-line device without any proxy configuration on the client.
 
