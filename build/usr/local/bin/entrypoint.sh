@@ -11,6 +11,6 @@ MODE=`echo ${MODE} | awk '{print tolower($1)}'`
 
 case ${MODE} in
   regular | reverse | socks5 | transparent | upstream )
-    /usr/local/bin/mitmweb --anticomp --listen-port ${LISTEN_PORT} --mode ${MODE} --no-web-open-browser --save-stream-file /var/log/mitmproxy/${MODE}.log --web-port ${WEB_PORT} --set web_host=${WEB_HOST} --showhost
+    /usr/local/bin/mitmweb --anticomp --listen-port ${LISTEN_PORT} --mode ${MODE} --no-web-open-browser --save-stream-file /var/log/mitmrouter/${MODE}.log --web-port ${WEB_PORT} --set web_host=${WEB_HOST} --showhost
   ;;
 esac
